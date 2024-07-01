@@ -1,0 +1,50 @@
+
+.heading{
+    padding: 10px;
+    background-color: rgb(90, 171, 252);
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    width: 350px;
+    height: auto;
+    background-color: rgb(90, 214, 252)  ;
+    padding: 10px;
+    border-radius: 50px;
+
+}
+
+.message{
+    padding:10px;
+}
+
+.labels{
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.tables {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    background-color:rgb(90, 171, 252);
+}
+
+.tables table {
+    width: 90%; 
+    max-width: 1200px; 
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    background-color:rgb(228, 228, 228);
+}
+
+.buttons{
+    background-color:rgb(103, 255, 2);
+    border: none;
+}
