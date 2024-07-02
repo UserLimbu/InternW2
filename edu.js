@@ -1,16 +1,20 @@
 function save() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+
     const level = document.getElementById('level').value;
     const university = document.getElementById('university').value;
     const address = document.getElementById('address').value;
     const board = document.getElementById('board').value;
     const gpa = document.getElementById('gpa').value;
-    const passedYear = document.getElementById('passedYear').value;
+    const passedYear = new Date(document.getElementById('passedYear').value);
+    const passedYearValue = passedYear.getFullYear();
     const message = document.getElementById('message');
     const tableDetails = document.getElementById('tableDetails');
 
     message.innerText = '';
 
-    if (!level || !university || !address || !board || !gpa || !passedYear) {
+    if (!level || !university || !address || !board || !gpa || !passedYear || !passedYearValue){
         message.innerText = 'Please fill all the form fields !!!';
         showMessage(message);
         return;
@@ -22,6 +26,12 @@ function save() {
         return;
     }
 
+    if (passedYearValue > currentYear) {
+        message.innerText = 'Date you provided is not valid! Please check again';
+        showMessage(message);
+        return;
+    }
+
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>${level}</td>
@@ -29,10 +39,10 @@ function save() {
         <td>${address}</td>
         <td>${board}</td>
         <td>${gpa}</td>
-        <td>${passedYear}</td>
+        <td>${passedYearValue}</td>
         <td>
-            <button onclick="editRow(this)" class= "buttons" >Edit</button>
-            <button onclick="deleteRow(this)" class= "buttons">Delete</button>
+            <button onclick="editRow(this)" class="buttons">Edit</button>
+            <button onclick="deleteRow(this)" class="buttons">Delete</button>
         </td>
     `;
 
